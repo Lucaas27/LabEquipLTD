@@ -2,15 +2,20 @@ version: '3.4'
 
 services:
   labequip:
+    networks:
+      - nginx_default
     container_name: labequip
     image: labequip
     build:
       context: .
       dockerfile: ./Dockerfile
     volumes:
-      - ./dist:/labEquip
+      - dist:/labEquip
     restart: always
     ports:
-      - '8080:8080'
+      - 90:80
 volumes:
-  data:
+  dist:
+networks:
+  nginx_default:
+    external: true
