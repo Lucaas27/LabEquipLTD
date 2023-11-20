@@ -29,7 +29,8 @@ module.exports = {
         variables: true,
       },
     ],
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/no-extraneous-dependencies': ['warn', { devDependencies: true }],
+    'promise/always-return': 'off',
   },
   overrides: [
     {

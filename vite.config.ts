@@ -17,6 +17,7 @@ export default defineConfig({
   publicDir: resolve(__dirname, 'src/public'),
   build: {
     rollupOptions: {
+      external: ['src/scripts/faviconGenerator.ts'],
       input: glob.sync(resolve(root, '*.html')),
     },
     outDir,
@@ -52,11 +53,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
-      '@pages': fileURLToPath(new URL('./src', import.meta.url)),
-      '@scripts': fileURLToPath(new URL('./src/scripts', import.meta.url)),
-      '@styles': fileURLToPath(new URL('./src/styles', import.meta.url)),
-      '@img': fileURLToPath(new URL('./src/assets/img', import.meta.url)),
+      '@components': fileURLToPath(new URL('/src/components', import.meta.url)),
+      '@pages': fileURLToPath(new URL('/src', import.meta.url)),
+      '@scripts': fileURLToPath(new URL('/src/scripts', import.meta.url)),
+      '@styles': fileURLToPath(new URL('/src/styles', import.meta.url)),
+      '@img': fileURLToPath(new URL('/src/public/img', import.meta.url)),
     },
   },
 });
