@@ -12,10 +12,13 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "dev": "vite",
+    "preview": "vite preview --port 8090",
     "build:docker": "docker compose up --build",
     "build": "tsc && vite build",
-    "preview": "vite preview --port 8090",
-    "deploy": "run-p build:*"
+    "deploy:remove-container": "docker compose down || true",
+    "deploy:start-container": "docker compose up",
+    "deploy:docker-build": "docker compose build --no-cache",
+    "deploy": "npm run deploy:remove-container && npm run deploy:docker-build && npm run deploy:start-container"
   },
   "devDependencies": {
     "@types/node": "^20.9.1",
