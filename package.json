@@ -25,6 +25,7 @@
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "@vituum/vite-plugin-posthtml": "^1.1.0",
+    "alpinejs": "^3.13.3",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.54.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
