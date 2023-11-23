@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500&family=Roboto:wght@400&display=swap');
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 @tailwind base;
 @tailwind components;
@@ -22,5 +22,19 @@
   h6 {
     font-family: 'Roboto', sans-serif;
     @apply dark:opacity-100;
+  }
+}
+
+@layer utilities {
+  .md-section-min-height {
+    min-height: calc(100vh - 104px);
+  }
+
+  .section-min-height {
+    min-height: calc(100vh - 70.4px);
+  }
+
+  .toggle-btn {
+    @apply [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div]:bg-transparent [&>div]:rotate-[720deg];
   }
 }
