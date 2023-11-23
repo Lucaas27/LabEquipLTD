@@ -1,1 +1,3 @@
-console.log('Test');
+import Alpine from 'alpinejs';
+
+Alpine.start();
