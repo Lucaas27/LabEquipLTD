@@ -5,9 +5,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bg-primary': '#f25454',
-        'bg-secondary': '#eff5ff',
-        'bg-dark': '#1b2c51',
+        primary: '#F25454',
+        secondary: '#d2e9f8',
+        contrast: '#E8A564',
+        dark: '#395666',
+        light: '#FAFAFA',
+        offWhite: '#F4F3F2',
       },
     },
   },
