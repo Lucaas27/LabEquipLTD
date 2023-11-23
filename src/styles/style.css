@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@400&display=swap');
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Override default font-family */
+  html {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  p {
+    @apply dark:opacity-75;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Roboto', sans-serif;
+    @apply dark:opacity-100;
+  }
+}
