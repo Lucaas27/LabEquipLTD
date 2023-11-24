@@ -5,13 +5,15 @@ on:
     branches:
       - main
 jobs:
-  build:
+  Deploy-to-Cloud:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Npm Install
         run: npm i
-      - name: configure ssh connection
+      - name: Npm Build
+        run: npm run build
+      - name: Configure ssh connection
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |

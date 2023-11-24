@@ -16,7 +16,7 @@
     "build:docker": "docker compose up --build",
     "build": "tsc && vite build",
     "deploy:remove-container": "docker compose down || true",
-    "deploy:start-container": "docker compose up",
+    "deploy:start-container": "docker compose up -d",
     "deploy:docker-build": "docker compose build --no-cache",
     "deploy": "npm run deploy:remove-container && npm run deploy:docker-build && npm run deploy:start-container"
   },
