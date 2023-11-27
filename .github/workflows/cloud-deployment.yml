@@ -11,8 +11,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Npm Install
         run: npm i
-      - name: Npm Build
-        run: npm run build
       - name: Configure ssh connection
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
