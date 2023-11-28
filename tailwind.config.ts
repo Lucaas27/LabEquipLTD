@@ -5,9 +5,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#F25454',
-        secondary: '#d2e9f8',
-        contrast: '#E8A564',
+        primary: '#d2232a',
+        secondary: '#D2E9F8',
+        contrast: '#f6c86b',
         dark: '#395666',
         light: '#FAFAFA',
         offWhite: '#F4F3F2',

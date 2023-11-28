@@ -27,11 +27,13 @@
 
 @layer utilities {
   .md-section-min-height {
-    min-height: calc(100vh - 104px);
+    min-height: calc(
+      100vh - 70px
+    ); /* 48px from the navbar + 32px from the top bar*/
   }
 
   .section-min-height {
-    min-height: calc(100vh - 70.4px);
+    min-height: calc(100vh - 48px);
   }
 
   .toggle-btn {

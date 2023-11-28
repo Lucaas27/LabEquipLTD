@@ -1,7 +1,7 @@
 {
-  "name": null,
-  "short_name": null,
-  "description": null,
+  "name": "Lab Equip LTD",
+  "short_name": "LabEquip",
+  "description": "Medical Equipment Provider",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",
