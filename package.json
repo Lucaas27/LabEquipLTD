@@ -24,6 +24,7 @@
     "@types/node": "^20.9.1",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
+    "@vitejs/plugin-legacy": "^5.0.0",
     "@vituum/vite-plugin-posthtml": "^1.1.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.54.0",
@@ -36,6 +37,7 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.7",
     "sharp": "^0.32.6",
     "stylelint-prettier": "^4.0.2",
     "svgo": "^3.0.4",
@@ -43,7 +45,6 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-image-optimizer": "^1.1.7",
-    "@vitejs/plugin-legacy": "^5.0.0"
+    "vite-plugin-image-optimizer": "^1.1.7"
   }
 }
