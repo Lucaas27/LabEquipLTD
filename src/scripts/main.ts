@@ -1,33 +1,56 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 function initApp() {
+  // Partners sliders
+  function sliderHandler() {
+    const sliderClone: Element | undefined = document
+      .querySelector(".logo-slide")
+      ?.cloneNode(true) as Element | undefined;
+    sliderClone?.setAttribute("aria-label", "hidden");
+
+    const sliderContainer: Element | null = document.querySelector(".logos");
+
+    // sliderClone?.classList.add("hover:pause-animation");
+
+    if (sliderClone) sliderContainer?.appendChild(sliderClone);
+
+    sliderContainer?.addEventListener("mouseenter", () => {
+      const sliders = document.querySelectorAll(".logo-slide");
+      sliders.forEach((row) => row.classList.add("pause-animation"));
+    });
+
+    sliderContainer?.addEventListener("mouseleave", () => {
+      const sliders = document.querySelectorAll(".logo-slide");
+      sliders.forEach((row) => row.classList.remove("pause-animation"));
+    });
+  }
   // **** hamburgerBtnHandler ***
 
   function hamburgerBtnHandler() {
     const hamburgerBtn: HTMLElement | null =
-      document.getElementById('hamburger-button');
+      document.getElementById("hamburger-button");
     const mobileMenu: HTMLElement | null =
-      document.getElementById('mobile-menu');
-    const body = document.getElementsByTagName('body')[0];
+      document.getElementById("mobile-menu");
+    const body = document.getElementsByTagName("body")[0];
 
     const toggleStates =
       (el: HTMLElement | null, origin: string | undefined = undefined) =>
       () => {
         if (el) {
-          el.classList.toggle('hidden');
-          el.classList.toggle('flex');
+          el.classList.toggle("hidden");
+          el.classList.toggle("flex");
         }
-        if (origin === 'hamburgerBtn') {
-          hamburgerBtn?.classList.toggle('toggle-btn');
-          body?.classList.toggle('overflow-hidden');
+        if (origin === "hamburgerBtn") {
+          hamburgerBtn?.classList.toggle("toggle-btn");
+          body?.classList.toggle("overflow-hidden");
         }
       };
 
     hamburgerBtn?.addEventListener(
-      'click',
-      toggleStates(mobileMenu, 'hamburgerBtn')
+      "click",
+      toggleStates(mobileMenu, "hamburgerBtn"),
     );
-    mobileMenu?.addEventListener('click', toggleStates(mobileMenu));
+    mobileMenu?.addEventListener("click", toggleStates(mobileMenu));
   }
 
   // **** dropdownNavBarHandler ***
@@ -35,31 +58,31 @@ function initApp() {
   function dropdownNavBarHandler() {
     let closeTimeout: NodeJS.Timeout;
     const dropdownNavBtn: HTMLElement | null =
-      document.getElementById('nav-dropdown-btn');
+      document.getElementById("nav-dropdown-btn");
     const dropdownNavItems: HTMLElement | null =
-      document.getElementById('nav-dropdown-items');
+      document.getElementById("nav-dropdown-items");
 
     dropdownNavBtn?.addEventListener(
-      'mouseenter',
-      () => dropdownNavItems?.classList.replace('hidden', 'flex')
+      "mouseenter",
+      () => dropdownNavItems?.classList.replace("hidden", "flex"),
     );
 
-    dropdownNavBtn?.addEventListener('mouseleave', () => {
+    dropdownNavBtn?.addEventListener("mouseleave", () => {
       // Set a timeout to close the dropdown after a short delay
       closeTimeout = setTimeout(() => {
-        dropdownNavItems?.classList.replace('flex', 'hidden');
+        dropdownNavItems?.classList.replace("flex", "hidden");
       }, 200);
     });
 
     // Cancel the timeout and keep the dropdown open if the mouse enters the dropdown
-    dropdownNavItems?.addEventListener('mouseenter', () => {
+    dropdownNavItems?.addEventListener("mouseenter", () => {
       clearTimeout(closeTimeout);
     });
 
     // Resume the timeout if the mouse leaves the dropdown
-    dropdownNavItems?.addEventListener('mouseleave', () => {
+    dropdownNavItems?.addEventListener("mouseleave", () => {
       closeTimeout = setTimeout(() => {
-        dropdownNavItems?.classList.replace('flex', 'hidden');
+        dropdownNavItems?.classList.replace("flex", "hidden");
       }, 200);
     });
   }
@@ -98,6 +121,7 @@ function initApp() {
   dropdownNavBarHandler();
   hamburgerBtnHandler();
   // contactFormHandler();
+  sliderHandler();
 }
 
-document.addEventListener('DOMContentLoaded', initApp);
+document.addEventListener("DOMContentLoaded", initApp);
