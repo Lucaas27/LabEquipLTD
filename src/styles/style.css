@@ -1,3 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500&family=Roboto:wght@400&display=swap");
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Override default font-family */
+  html {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  p {
+    @apply dark:opacity-75;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Roboto", sans-serif;
+    @apply dark:opacity-100;
+  }
+}
+
+@layer utilities {
+  .md-section-min-height {
+    min-height: calc(100vh - 70px);
+    min-height: calc(
+      100dvh - 70px
+    ); /* 48px from the navbar + 32px from the top bar*/
+  }
+
+  .pause-animation {
+    animation-play-state: paused;
+  }
+
+  .section-min-height {
+    min-height: calc(100vh - 48px);
+    min-height: calc(100dvh - 48px);
+  }
+
+  .toggle-btn {
+    @apply [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div]:rotate-[720deg] [&>div]:bg-transparent;
+  }
+
+  .btn {
+    @apply rounded-xl border-2 border-solid border-dark text-center font-medium transition-all duration-300 hover:bg-yellow-600 hover:shadow-md;
+  }
+}
