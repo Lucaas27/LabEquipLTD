@@ -1,6 +1,52 @@
+import KeenSlider from "keen-slider";
+import "keen-slider/keen-slider.min.css";
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 function initApp() {
+  // Testimonial
+
+  function testimonialHandler() {
+    const keenSlider = new KeenSlider(
+      "#keen-slider",
+      {
+        loop: true,
+        slides: {
+          origin: "center",
+          perView: 1.25,
+          spacing: 16,
+        },
+        breakpoints: {
+          "(min-width: 1024px)": {
+            slides: {
+              origin: "auto",
+              perView: 1.5,
+              spacing: 32,
+            },
+          },
+        },
+      },
+      [],
+    );
+
+    const keenSliderPrevious = document.getElementById("keen-slider-previous");
+    const keenSliderNext = document.getElementById("keen-slider-next");
+
+    const keenSliderPreviousDesktop = document.getElementById(
+      "keen-slider-previous-desktop",
+    );
+    const keenSliderNextDesktop = document.getElementById(
+      "keen-slider-next-desktop",
+    );
+
+    keenSliderPrevious?.addEventListener("click", () => keenSlider.prev());
+    keenSliderNext?.addEventListener("click", () => keenSlider.next());
+
+    keenSliderPreviousDesktop?.addEventListener("click", () =>
+      keenSlider.prev(),
+    );
+    keenSliderNextDesktop?.addEventListener("click", () => keenSlider.next());
+  }
   // Partners sliders
   function sliderHandler() {
     const sliderClone: Element | undefined = document
@@ -122,6 +168,7 @@ function initApp() {
   hamburgerBtnHandler();
   // contactFormHandler();
   sliderHandler();
+  testimonialHandler();
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
