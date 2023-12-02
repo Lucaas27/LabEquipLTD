@@ -5,6 +5,7 @@
     <include src="components/favicons.html"></include>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title}}</title>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
     <link href="/styles/style.css" rel="stylesheet" />
   </head>
   <body class="bg-light">
@@ -13,7 +14,7 @@
       <header class="sticky top-0 z-10">
         <include src="components/nav.html"></include>
       </header>
-      <main class="grow">
+      <main class="grow overflow-x-hidden">
         <block name="content"></block>
       </main>
       <footer class="bg-offWhite shadow">
