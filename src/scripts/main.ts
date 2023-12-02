@@ -1,21 +1,32 @@
-function initApp() {
-  // **** hambugerBtnHandler ***
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-  function hambugerBtnHandler() {
-    const hambugerBtn: HTMLElement | null =
+function initApp() {
+  // **** hamburgerBtnHandler ***
+
+  function hamburgerBtnHandler() {
+    const hamburgerBtn: HTMLElement | null =
       document.getElementById('hamburger-button');
     const mobileMenu: HTMLElement | null =
       document.getElementById('mobile-menu');
+    const body = document.getElementsByTagName('body')[0];
 
-    const toggleStates = (el: HTMLElement | null) => () => {
-      if (el) {
-        el.classList.toggle('hidden');
-        el.classList.toggle('flex');
-        hambugerBtn?.classList.toggle('toggle-btn');
-      }
-    };
+    const toggleStates =
+      (el: HTMLElement | null, origin: string | undefined = undefined) =>
+      () => {
+        if (el) {
+          el.classList.toggle('hidden');
+          el.classList.toggle('flex');
+        }
+        if (origin === 'hamburgerBtn') {
+          hamburgerBtn?.classList.toggle('toggle-btn');
+          body?.classList.toggle('overflow-hidden');
+        }
+      };
 
-    hambugerBtn?.addEventListener('click', toggleStates(mobileMenu));
+    hamburgerBtn?.addEventListener(
+      'click',
+      toggleStates(mobileMenu, 'hamburgerBtn')
+    );
     mobileMenu?.addEventListener('click', toggleStates(mobileMenu));
   }
 
@@ -53,8 +64,40 @@ function initApp() {
     });
   }
 
+  // function contactFormHandler() {
+  //   const contactForm: HTMLElement | null =
+  //     document.getElementById('contact-form');
+
+  //   contactForm?.addEventListener('submit', (e: any) => {
+  //     e.preventDefault();
+
+  //     const formData = new FormData(e.target);
+  //     const formProps = Object.fromEntries(formData);
+
+  //     fetch(`/contactForm/sendEmail`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(formProps),
+  //     })
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         if (data.success) {
+  //           window.location.href = `/success.html`;
+  //         } else {
+  //           alert('Error sending the contact form. Please try again.');
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error('Error:', error);
+  //       });
+  //   });
+  // }
+
   dropdownNavBarHandler();
-  hambugerBtnHandler();
+  hamburgerBtnHandler();
+  // contactFormHandler();
 }
 
 document.addEventListener('DOMContentLoaded', initApp);

@@ -7,17 +7,20 @@
     <title>{{title}}</title>
     <link href="/styles/style.css" rel="stylesheet" />
   </head>
-  <body class="min-h-screen bg-light">
-    <header>
-      <include src="components/topbar.html"></include>
-      <include src="components/nav.html"></include>
-    </header>
-    <main>
-      <block name="content"></block>
-    </main>
-    <footer>
-      <include src="components/footer.html"></include>
-    </footer>
+  <body class="bg-light">
+    <include src="components/topbar.html"></include>
+    <div class="flex flex-col h-screen">
+      <header class="sticky top-0 z-10">
+        <include src="components/nav.html"></include>
+      </header>
+      <main class="grow">
+        <block name="content"></block>
+      </main>
+      <footer class="">
+        <h1></h1>
+        <include src="components/footer.html"></include>
+      </footer>
+    </div>
     <script type="module" src="/scripts/main.ts"></script>
   </body>
 </html>

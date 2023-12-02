@@ -12,13 +12,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "dev": "vite",
-    "preview": "vite preview --port 8090",
-    "build:docker": "docker compose up --build",
     "build": "tsc && vite build",
-    "deploy:remove-container": "docker compose down || true",
-    "deploy:start-container": "docker compose up -d",
-    "deploy:docker-build": "docker compose build --no-cache",
-    "deploy": "npm run deploy:remove-container && npm run deploy:docker-build && npm run deploy:start-container"
+    "preview": "vite preview --port 9090",
+    "docker:build": "docker compose build --no-cache",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down -v || true",
+    "deploy": "npm run build && npm run docker:down && npm run docker:build && npm run docker:up"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",
@@ -44,9 +43,7 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-image-optimizer": "^1.1.7"
-  },
-  "dependencies": {
+    "vite-plugin-image-optimizer": "^1.1.7",
     "@vitejs/plugin-legacy": "^5.0.0"
   }
 }
