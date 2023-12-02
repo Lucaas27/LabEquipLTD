@@ -1,9 +1,23 @@
-import KeenSlider from "keen-slider";
+import "aos/dist/aos.css";
 import "keen-slider/keen-slider.min.css";
+import AOS from "aos";
+import KeenSlider from "keen-slider";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 function initApp() {
+  AOS.init({
+    duration: 1200,
+    easing: "ease-in-out-back",
+  });
+
+  // Copyright year
+  function copyrightYear() {
+    const date: string = new Date().getFullYear() as unknown as string;
+    const year: Element | null = document.getElementById("copyrightYear");
+    if (year) year.innerHTML = date;
+  }
+
   // Testimonial
 
   function testimonialHandler() {
@@ -164,6 +178,7 @@ function initApp() {
   //   });
   // }
 
+  copyrightYear();
   dropdownNavBarHandler();
   hamburgerBtnHandler();
   // contactFormHandler();
