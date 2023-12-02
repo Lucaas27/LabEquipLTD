@@ -61,6 +61,16 @@ export default defineConfig({
       '@img': fileURLToPath(new URL('src/public/img', import.meta.url)),
     },
   },
+  server: {
+    proxy: {
+      '/contactForm': {
+        target: 'http://localhost:41223', // Replace with your back-end server URL
+        changeOrigin: true,
+        secure: false,
+        // rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 });
 
 // function getPages() {
