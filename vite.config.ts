@@ -53,11 +53,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@components': fileURLToPath(new URL('/src/components', import.meta.url)),
-      '@pages': fileURLToPath(new URL('/src', import.meta.url)),
-      '@scripts': fileURLToPath(new URL('/src/scripts', import.meta.url)),
-      '@styles': fileURLToPath(new URL('/src/styles', import.meta.url)),
-      '@img': fileURLToPath(new URL('/src/public/img', import.meta.url)),
+      '@': fileURLToPath(new URL('./node_modules', import.meta.url)),
+      '@components': fileURLToPath(new URL('src/components', import.meta.url)),
+      '@pages': fileURLToPath(new URL('src', import.meta.url)),
+      '@scripts': fileURLToPath(new URL('src/scripts', import.meta.url)),
+      '@styles': fileURLToPath(new URL('src/styles', import.meta.url)),
+      '@img': fileURLToPath(new URL('src/public/img', import.meta.url)),
     },
   },
 });
