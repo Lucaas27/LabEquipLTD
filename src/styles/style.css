@@ -7,7 +7,7 @@
 @layer base {
   /* Override default font-family */
   html {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Source Sans 3", sans-serif;
   }
 
   p {
@@ -41,13 +41,15 @@
     min-height: calc(100vh - 48px);
     min-height: calc(100dvh - 48px);
   }
+}
 
+@layer components {
   .toggle-btn {
     @apply [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div]:rotate-[720deg] [&>div]:bg-transparent;
   }
 
   .btn {
-    @apply rounded-xl border-2 border-solid border-dark text-center font-medium transition-all duration-300 hover:bg-yellow-600 hover:shadow-md;
+    @apply rounded-xl border-2 border-solid border-dark text-center font-medium transition-all duration-300 hover:scale-105 hover:bg-yellow-600 hover:shadow-md;
   }
 
   .wave {
