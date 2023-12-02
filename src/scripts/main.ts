@@ -147,41 +147,41 @@ function initApp() {
     });
   }
 
-  // function contactFormHandler() {
-  //   const contactForm: HTMLElement | null =
-  //     document.getElementById('contact-form');
+  function contactFormHandler() {
+    const contactForm: HTMLElement | null =
+      document.getElementById("contact-form");
 
-  //   contactForm?.addEventListener('submit', (e: any) => {
-  //     e.preventDefault();
+    contactForm?.addEventListener("submit", (e: any) => {
+      e.preventDefault();
 
-  //     const formData = new FormData(e.target);
-  //     const formProps = Object.fromEntries(formData);
+      const formData = new FormData(e.target);
+      const formProps = Object.fromEntries(formData);
 
-  //     fetch(`/contactForm/sendEmail`, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(formProps),
-  //     })
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         if (data.success) {
-  //           window.location.href = `/success.html`;
-  //         } else {
-  //           alert('Error sending the contact form. Please try again.');
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error('Error:', error);
-  //       });
-  //   });
-  // }
+      fetch(`http://127.0.0.1:41223/contactForm/sendEmail`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formProps),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            window.location.href = `/success.html`;
+          } else {
+            alert("Error submitting the contact form. Please try again.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
+  }
 
   copyrightYear();
   dropdownNavBarHandler();
   hamburgerBtnHandler();
-  // contactFormHandler();
+  contactFormHandler();
   sliderHandler();
   testimonialHandler();
 }
