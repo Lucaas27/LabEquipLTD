@@ -30,10 +30,10 @@ if (isset($_POST['captcha_code'])) {
 
         if (mail($to, $subject, $htmlMessage, $headers)) {
             $response['success'] = true;
-            $response['message'] = "Your Information has been sent successfully";
+            $response['message'] = "Your information has been submitted successfully!";
         } else {
             $response['success'] = false;
-            $response['message'] = "Please check your Information!";
+            $response['message'] = "Please check your details!";
         }
     } else {
         $response['success'] = false;
