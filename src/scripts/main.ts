@@ -61,6 +61,7 @@ function initApp() {
     );
     keenSliderNextDesktop?.addEventListener("click", () => keenSlider.next());
   }
+
   // Partners sliders
   function sliderHandler() {
     const sliderClone: Element | undefined = document
@@ -84,6 +85,7 @@ function initApp() {
       sliders.forEach((row) => row.classList.remove("pause-animation"));
     });
   }
+
   // **** hamburgerBtnHandler ***
 
   function hamburgerBtnHandler() {
@@ -93,23 +95,16 @@ function initApp() {
       document.getElementById("mobile-menu");
     const body = document.getElementsByTagName("body")[0];
 
-    const toggleStates =
-      (el: HTMLElement | null, origin: string | undefined = undefined) =>
-      () => {
-        if (el) {
-          el.classList.toggle("hidden");
-          el.classList.toggle("flex");
-        }
-        if (origin === "hamburgerBtn") {
-          hamburgerBtn?.classList.toggle("toggle-btn");
-          body?.classList.toggle("overflow-hidden");
-        }
-      };
+    const toggleStates = (el: HTMLElement | null) => () => {
+      if (el) {
+        el.classList.toggle("hidden");
+        el.classList.toggle("flex");
+        hamburgerBtn?.classList.toggle("toggle-btn");
+        body?.classList.toggle("overflow-hidden");
+      }
+    };
 
-    hamburgerBtn?.addEventListener(
-      "click",
-      toggleStates(mobileMenu, "hamburgerBtn"),
-    );
+    hamburgerBtn?.addEventListener("click", toggleStates(mobileMenu));
     mobileMenu?.addEventListener("click", toggleStates(mobileMenu));
   }
 
@@ -147,30 +142,43 @@ function initApp() {
     });
   }
 
+  // Contact form handler
   function contactFormHandler() {
-    const contactForm: HTMLElement | null =
-      document.getElementById("contact-form");
+    const contactForm: HTMLFormElement | null = document.getElementById(
+      "contact-form",
+    ) as HTMLFormElement;
 
     contactForm?.addEventListener("submit", (e: any) => {
       e.preventDefault();
 
       const formData = new FormData(e.target);
-      const formProps = Object.fromEntries(formData);
 
-      fetch(`http://127.0.0.1:41223/contactForm/sendEmail`, {
+      // Convert FormData to plain JavaScript object
+      const formProps: Record<string, string> = {};
+
+      formData.forEach((value, key) => {
+        formProps[key] = value.toString();
+      });
+
+      fetch(`php/sendEmail.php`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify(formProps),
+        // Convert data to URL-encoded form data
+        body: new URLSearchParams(formProps).toString(),
       })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            window.location.href = `/success.html`;
-          } else {
-            alert("Error submitting the contact form. Please try again.");
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
           }
+          return response.json();
+        })
+        .then((resData) => {
+          if (resData.success) {
+            contactForm?.reset();
+          }
+          alert(resData.message);
         })
         .catch((error) => {
           console.error("Error:", error);
