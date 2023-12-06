@@ -61,6 +61,7 @@ function initApp() {
     );
     keenSliderNextDesktop?.addEventListener("click", () => keenSlider.next());
   }
+
   // Partners sliders
   function sliderHandler() {
     const sliderClone: Element | undefined = document
@@ -84,6 +85,7 @@ function initApp() {
       sliders.forEach((row) => row.classList.remove("pause-animation"));
     });
   }
+
   // **** hamburgerBtnHandler ***
 
   function hamburgerBtnHandler() {
@@ -93,23 +95,16 @@ function initApp() {
       document.getElementById("mobile-menu");
     const body = document.getElementsByTagName("body")[0];
 
-    const toggleStates =
-      (el: HTMLElement | null, origin: string | undefined = undefined) =>
-      () => {
-        if (el) {
-          el.classList.toggle("hidden");
-          el.classList.toggle("flex");
-        }
-        if (origin === "hamburgerBtn") {
-          hamburgerBtn?.classList.toggle("toggle-btn");
-          body?.classList.toggle("overflow-hidden");
-        }
-      };
+    const toggleStates = (el: HTMLElement | null) => () => {
+      if (el) {
+        el.classList.toggle("hidden");
+        el.classList.toggle("flex");
+        hamburgerBtn?.classList.toggle("toggle-btn");
+        body?.classList.toggle("overflow-hidden");
+      }
+    };
 
-    hamburgerBtn?.addEventListener(
-      "click",
-      toggleStates(mobileMenu, "hamburgerBtn"),
-    );
+    hamburgerBtn?.addEventListener("click", toggleStates(mobileMenu));
     mobileMenu?.addEventListener("click", toggleStates(mobileMenu));
   }
 
@@ -147,41 +142,114 @@ function initApp() {
     });
   }
 
-  // function contactFormHandler() {
-  //   const contactForm: HTMLElement | null =
-  //     document.getElementById('contact-form');
+  // Contact form handler
+  function contactFormHandler() {
+    // form
+    const contactForm: HTMLFormElement | null = document.getElementById(
+      "contact-form",
+    ) as HTMLFormElement;
 
-  //   contactForm?.addEventListener('submit', (e: any) => {
-  //     e.preventDefault();
+    // notifications
+    const notifications: Element | null =
+      document.getElementById("notification");
 
-  //     const formData = new FormData(e.target);
-  //     const formProps = Object.fromEntries(formData);
+    contactForm?.addEventListener("submit", (e: any) => {
+      e.preventDefault();
 
-  //     fetch(`/contactForm/sendEmail`, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(formProps),
-  //     })
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         if (data.success) {
-  //           window.location.href = `/success.html`;
-  //         } else {
-  //           alert('Error sending the contact form. Please try again.');
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error('Error:', error);
-  //       });
-  //   });
-  // }
+      const formData = new FormData(e.target);
+
+      // Convert FormData to plain JavaScript object
+      const formProps: Record<string, string> = {};
+
+      formData.forEach((value, key) => {
+        formProps[key] = value.toString();
+      });
+
+      fetch(`php/sendEmail.php`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        // Convert data to URL-encoded form data
+        body: new URLSearchParams(formProps).toString(),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((resData) => {
+          if (resData.success) {
+            // Reset form
+            contactForm?.reset();
+
+            if (notifications) {
+              notifications.innerHTML = `
+              <div
+                class="mb-3 inline-flex items-center rounded-lg bg-green-100 px-6 py-5 text-base text-green-700"
+                role="alert"
+              >
+                <span class="mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="h-5 w-5"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </span>
+                ${resData.message}
+              </div>
+                `;
+
+              setTimeout(() => {
+                notifications.innerHTML = "";
+              }, 3000);
+            }
+          } else if (notifications) {
+            notifications.innerHTML = `
+              <div
+                class="mb-3 inline-flex items-center rounded-lg bg-red-100 px-6 py-5 text-base text-red-700"
+                role="alert"
+              >
+                <span class="mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="h-5 w-5"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                ${resData.message}
+              </div>
+              `;
+
+            setTimeout(() => {
+              notifications.innerHTML = "";
+            }, 3000);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    });
+  }
 
   copyrightYear();
   dropdownNavBarHandler();
   hamburgerBtnHandler();
-  // contactFormHandler();
+  contactFormHandler();
   sliderHandler();
   testimonialHandler();
 }
