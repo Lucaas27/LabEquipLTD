@@ -6,6 +6,40 @@ import KeenSlider from "keen-slider";
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 function initApp() {
+  const keenSliderEl = document.getElementById("keen-slider");
+  const keenSliderPrevious = document.getElementById("keen-slider-previous");
+  const keenSliderNext = document.getElementById("keen-slider-next");
+
+  const keenSliderPreviousDesktop = document.getElementById(
+    "keen-slider-previous-desktop",
+  );
+  const keenSliderNextDesktop = document.getElementById(
+    "keen-slider-next-desktop",
+  );
+
+  // Accordion
+  function accordionHandler() {
+    const items: NodeListOf<Element> = document.querySelectorAll(
+      ".accordion-item .header",
+    );
+
+    items.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        const header: Element = e.currentTarget as Element;
+        const content: Element = header.parentElement?.querySelector(
+          ".content",
+        ) as Element;
+        const arrowDown: Element = header.querySelector(
+          ".arrow-down",
+        ) as Element;
+        const arrowUp: Element = header.querySelector(".arrow-up") as Element;
+        arrowDown.classList.toggle("hidden");
+        arrowUp.classList.toggle("hidden");
+        content.classList.toggle("hidden");
+      });
+    });
+  }
+  // Animate on scroll
   AOS.init({
     duration: 1200,
     easing: "ease-in-out-back",
@@ -41,16 +75,6 @@ function initApp() {
         },
       },
       [],
-    );
-
-    const keenSliderPrevious = document.getElementById("keen-slider-previous");
-    const keenSliderNext = document.getElementById("keen-slider-next");
-
-    const keenSliderPreviousDesktop = document.getElementById(
-      "keen-slider-previous-desktop",
-    );
-    const keenSliderNextDesktop = document.getElementById(
-      "keen-slider-next-desktop",
     );
 
     keenSliderPrevious?.addEventListener("click", () => keenSlider.prev());
@@ -251,7 +275,8 @@ function initApp() {
   hamburgerBtnHandler();
   contactFormHandler();
   sliderHandler();
-  testimonialHandler();
+  if (keenSliderEl) testimonialHandler();
+  accordionHandler();
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
