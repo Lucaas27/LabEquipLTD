@@ -1,3 +1,19 @@
 <extends src="layouts/main.html" locals='{"title": "Lab Equip - About"}'>
-  <block name="content"></block>
+  <block name="content">
+    <section class="mx-auto mb-28 mt-14 max-w-4xl px-6 xl:max-w-6xl">
+      <include src="components/about_intro.html"></include>
+    </section>
+    <section class="mx-auto mb-28 max-w-4xl px-6 xl:max-w-6xl">
+      <include src="components/about_goals.html"></include>
+    </section>
+    <section class="mx-auto mb-20 max-w-4xl px-6 xl:max-w-6xl">
+      <include src="components/about_locations.html"></include>
+    </section>
+    <section
+      class="mx-auto mb-28 max-w-4xl px-6 xl:max-w-6xl"
+      data-aos="zoom-out"
+    >
+      <include src="components/about_chairman.html"></include>
+    </section>
+  </block>
 </extends>
