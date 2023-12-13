@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 /* eslint-disable import/no-default-export */
+import defaultTheme from "tailwindcss/defaultTheme";
+
 export default {
   content: ["./src/**/*.{html,js,ts}"],
   theme: {
+    screens: {
+      xs: { max: "432px" },
+      ...defaultTheme.screens,
+    },
     extend: {
       colors: {
         primary: "#b81f25",
