@@ -33,7 +33,7 @@ export default defineConfig({
         quality: 100,
       },
       jpg: {
-        quality: 100,
+        quality: 80,
       },
       tiff: {
         quality: 100,
