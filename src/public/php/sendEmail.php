@@ -9,7 +9,7 @@ if (isset($_POST['captcha_code'])) {
         $email = $_POST['email'];
         $message = $_POST['message'];
 
-        $to = "lucasggomees@gmail.com";
+        $to = "info@lel.co.tz";
         $subject = "Lab Equipment Ltd - New message";
         $htmlMessage = '<!DOCTYPE html>
                         <html>
