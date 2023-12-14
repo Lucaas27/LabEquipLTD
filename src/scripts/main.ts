@@ -382,4 +382,13 @@ function initApp() {
   productClickHandler();
 }
 
+// Loader
+function pageLoader() {
+  const loader: Element | null = document.querySelector(".loader");
+
+  loader?.classList.add("hidden");
+  loader?.classList.add("opacity-0");
+}
+
+window.addEventListener("load", pageLoader);
 document.addEventListener("DOMContentLoaded", initApp);

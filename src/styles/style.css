@@ -41,11 +41,20 @@
     min-height: calc(100vh - 48px);
     min-height: calc(100dvh - 48px);
   }
+
+  .loader-hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 @layer components {
   .toggle-btn {
     @apply [&>div::after]:translate-y-0 [&>div::after]:-rotate-45 [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div]:rotate-[720deg] [&>div]:bg-transparent;
+  }
+
+  .loader {
+    @apply fixed left-0 top-0 z-50 flex h-screen w-screen items-center justify-center bg-white opacity-75 transition [&::after]:h-20 [&::after]:w-20 [&::after]:animate-spin [&::after]:rounded-full [&::after]:border-[15px] [&::after]:border-solid [&::after]:border-t-primary [&::after]:content-[""];
   }
 
   .btn {
