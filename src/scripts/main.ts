@@ -17,6 +17,65 @@ function initApp() {
     "keen-slider-next-desktop",
   );
 
+  // Product click handler
+  function productClickHandler() {
+    const categoryLinks =
+      document.querySelectorAll<HTMLAnchorElement>("li[data-category]");
+
+    const handleClick = (e: MouseEvent) => {
+      e.preventDefault();
+
+      // Get product-title element
+      const productTitle: HTMLElement | null =
+        document.getElementById("product-title");
+
+      // Get category from link
+      const target = e.target as HTMLElement;
+      const { category } = target.dataset;
+
+      // Handle link color
+      categoryLinks.forEach((cat) => cat.classList.remove("text-primary"));
+      target.classList.add("text-primary");
+      target.classList.remove("text-dark");
+
+      // Get all products
+      const products = document.querySelectorAll<HTMLDivElement>(".product");
+
+      // Show all products if "All" is selected
+      if (!category || category.toLowerCase() === "all") {
+        products.forEach((product) => {
+          product.classList.remove("hidden");
+          product.classList.add("flex");
+        });
+        if (productTitle) productTitle.innerHTML = `All Products`;
+        return;
+      }
+
+      // Append category to productTitle '
+      if (productTitle) {
+        const cat = category;
+        productTitle.innerHTML = `Products in ${cat}`;
+      }
+
+      // Show all matching products, hide others
+      products.forEach((product) => {
+        const productCategory = product.getAttribute("data-category");
+
+        if (productCategory === category) {
+          product.classList.remove("hidden");
+          product.classList.add("flex");
+        } else {
+          product.classList.remove("flex");
+          product.classList.add("hidden");
+        }
+      });
+    };
+
+    categoryLinks.forEach((link) => {
+      link.addEventListener("click", handleClick);
+    });
+  }
+
   // Accordion
   function accordionHandler() {
     const items: NodeListOf<Element> = document.querySelectorAll(
@@ -39,6 +98,7 @@ function initApp() {
       });
     });
   }
+
   // Animate on scroll
   AOS.init({
     duration: 1200,
@@ -53,7 +113,6 @@ function initApp() {
   }
 
   // Testimonial
-
   function testimonialHandler() {
     const keenSlider = new KeenSlider(
       "#keen-slider",
@@ -134,35 +193,77 @@ function initApp() {
 
   // **** dropdownNavBarHandler ***
 
-  function dropdownNavBarHandler() {
-    let closeTimeout: NodeJS.Timeout;
-    const dropdownNavBtn: HTMLElement | null =
-      document.getElementById("nav-dropdown-btn");
-    const dropdownNavItems: HTMLElement | null =
-      document.getElementById("nav-dropdown-items");
+  // function dropdownNavBarHandler() {
+  //   let closeTimeout: NodeJS.Timeout;
+  //   const dropdownNavBtn: HTMLElement | null =
+  //     document.getElementById("nav-dropdown-btn");
+  //   const dropdownNavItems: HTMLElement | null =
+  //     document.getElementById("nav-dropdown-items");
 
-    dropdownNavBtn?.addEventListener(
-      "mouseenter",
-      () => dropdownNavItems?.classList.replace("hidden", "flex"),
-    );
+  //   dropdownNavBtn?.addEventListener(
+  //     "mouseenter",
+  //     () => dropdownNavItems?.classList.replace("hidden", "flex"),
+  //   );
 
-    dropdownNavBtn?.addEventListener("mouseleave", () => {
-      // Set a timeout to close the dropdown after a short delay
-      closeTimeout = setTimeout(() => {
-        dropdownNavItems?.classList.replace("flex", "hidden");
-      }, 200);
-    });
+  //   dropdownNavBtn?.addEventListener("mouseleave", () => {
+  //     // Set a timeout to close the dropdown after a short delay
+  //     closeTimeout = setTimeout(() => {
+  //       dropdownNavItems?.classList.replace("flex", "hidden");
+  //     }, 200);
+  //   });
 
-    // Cancel the timeout and keep the dropdown open if the mouse enters the dropdown
-    dropdownNavItems?.addEventListener("mouseenter", () => {
-      clearTimeout(closeTimeout);
-    });
+  //   // Cancel the timeout and keep the dropdown open if the mouse enters the dropdown
+  //   dropdownNavItems?.addEventListener("mouseenter", () => {
+  //     clearTimeout(closeTimeout);
+  //   });
 
-    // Resume the timeout if the mouse leaves the dropdown
-    dropdownNavItems?.addEventListener("mouseleave", () => {
-      closeTimeout = setTimeout(() => {
-        dropdownNavItems?.classList.replace("flex", "hidden");
-      }, 200);
+  //   // Resume the timeout if the mouse leaves the dropdown
+  //   dropdownNavItems?.addEventListener("mouseleave", () => {
+  //     closeTimeout = setTimeout(() => {
+  //       dropdownNavItems?.classList.replace("flex", "hidden");
+  //     }, 200);
+  //   });
+  // }
+
+  // NavBar
+  function navBarLinksHandler() {
+    const navBarLinks = document.querySelectorAll(".nav-link");
+
+    const handleClick = (e: Event) => {
+      const target = e.target as HTMLElement;
+
+      // Check if the clicked link is already selected
+      if (target.classList.contains("text-primary")) {
+        return;
+      }
+
+      // Remove "text-primary" class from all links
+      navBarLinks.forEach((link) => {
+        link.classList.remove("text-primary");
+        link.classList.add("text-dark");
+      });
+
+      // Save the selected link's index to localStorage
+      const selectedIndex = Array.from(navBarLinks).indexOf(target);
+      localStorage.setItem("selectedLink", selectedIndex.toString());
+    };
+
+    // Add click event listener to each link
+    navBarLinks.forEach((link, index) => {
+      link.addEventListener(
+        "click",
+        (e: Event) => {
+          handleClick(e);
+        },
+        false,
+      );
+
+      // Check if there is a selected link in localStorage and apply the style
+      const selectedIndex: string | null = localStorage.getItem("selectedLink");
+      if (selectedIndex && index === parseInt(selectedIndex, 10)) {
+        link.classList.add("text-primary");
+        link.classList.remove("text-dark");
+      }
     });
   }
 
@@ -271,12 +372,14 @@ function initApp() {
   }
 
   copyrightYear();
-  dropdownNavBarHandler();
+  // dropdownNavBarHandler();
+  navBarLinksHandler();
   hamburgerBtnHandler();
   contactFormHandler();
   sliderHandler();
   if (keenSliderEl) testimonialHandler();
   accordionHandler();
+  productClickHandler();
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
