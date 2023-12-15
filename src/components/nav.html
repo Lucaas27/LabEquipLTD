@@ -3,12 +3,13 @@
     <div
       class="mx-auto flex max-w-4xl items-center justify-between px-3 py-2 text-sm md:text-lg xl:max-w-6xl"
     >
-      <a href="index.html">
+      <a href="index.html" aria-label="index-link">
         <img src="img/logo.png" alt="Logo Lab Equip" class="h-8" />
       </a>
       <div>
         <button
           id="hamburger-button"
+          aria-label="hamburger-button"
           class="relative h-8 w-8 cursor-pointer text-3xl text-dark focus:text-primary md:hidden"
           type="button"
         >
@@ -22,24 +23,40 @@
           class="hidden space-x-8 text-base uppercase md:block"
         >
           <div class="inline space-x-8 font-medium">
-            <a href="/" class="nav-link text-dark hover:text-primary">Home</a>
-            <a href="about.html" class="nav-link text-dark hover:text-primary"
+            <a
+              href="/"
+              class="nav-link text-dark hover:text-primary"
+              aria-label="home-link"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              class="nav-link text-dark hover:text-primary"
+              aria-label="about-link"
               >About</a
             >
             <a
+              aria-label="services-link"
               href="services.html"
               class="nav-link text-dark hover:text-primary"
               >Services</a
             >
             <a
+              aria-label="products-link"
               href="products.html"
               class="nav-link text-dark hover:text-primary"
               >Products</a
             >
-            <a href="faq.html" class="nav-link text-dark hover:text-primary"
+            <a
+              href="faq.html"
+              class="nav-link text-dark hover:text-primary"
+              aria-label="faq-link"
               >FAQ</a
             >
-            <a href="/#contact" class="nav-link text-dark hover:text-primary"
+            <a
+              href="/#contact"
+              class="nav-link text-dark hover:text-primary"
+              aria-label="contact-link"
               >Contact us</a
             >
           </div>
@@ -58,30 +75,36 @@
     >
       <a
         href="/"
+        aria-label="home-link"
         class="w-full py-6 text-center text-dark hover:bg-white hover:text-primary"
         >Home</a
       >
       <a
+        aria-label="about-link"
         href="about.html"
         class="w-full py-6 text-center text-dark hover:bg-white hover:text-primary"
         >About</a
       >
       <a
+        aria-label="services-link"
         href="services.html"
         class="w-full py-6 text-center text-dark hover:bg-white hover:text-primary"
         >Services</a
       >
       <a
+        aria-label="products-link"
         href="products.html"
         class="w-full py-6 text-center text-dark hover:bg-white hover:text-primary"
         >Products</a
       >
       <a
+        aria-label="faq-link"
         href="faq.html"
         class="w-full py-6 text-center text-dark hover:bg-white hover:text-primary"
         >FAQ</a
       >
       <a
+        aria-label="contact-link"
         href="/#contact"
         class="w-full py-6 text-center text-dark hover:bg-white hover:text-primary"
         >Contact us</a

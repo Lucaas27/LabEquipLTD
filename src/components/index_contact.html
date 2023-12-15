@@ -1,12 +1,13 @@
 <div
-  class="shadow-[0_2px_10px_-3px_rgb(218 82 88,0.3)] relative mx-auto my-6 grid max-w-6xl gap-16 rounded-3xl bg-white p-10 md:grid-cols-2 md:before:absolute md:before:left-0 md:before:h-full md:before:w-[300px] md:before:rounded-l-xl md:before:bg-offWhite"
+class="shadow-[0_2px_10px_-3px_rgb(218 82 88,0.3)] relative mx-auto my-6 grid max-w-6xl gap-16 rounded-3xl bg-white p-10 md:grid-cols-2 md:before:absolute md:before:left-0 md:before:h-full md:before:w-[300px] md:before:rounded-l-xl md:before:bg-offWhite"
 >
-  <div class="relative h-full md:min-h-[350px]">
-    <iframe
-      src="https://maps.google.com/maps?q=Lab+Equip+Ltd+-+Lab+House,+Dar+es+Salaam,+Tanzania&t=&z=13&ie=UTF8&iwloc=&output=embed"
-      class="left-0 top-0 h-full w-full rounded-lg"
-      frameborder="0"
-      allowfullscreen
+<div class="relative h-full md:min-h-[350px]">
+  <iframe
+    src="https://maps.google.com/maps?q=Lab+Equip+Ltd+-+Lab+House,+Dar+es+Salaam,+Tanzania&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    class="left-0 top-0 h-full w-full rounded-lg"
+    frameborder="0"
+    allowfullscreen
+    title="lab-equip-map"
     ></iframe>
   </div>
   <div>
@@ -45,9 +46,10 @@
         ></textarea>
       </div>
       <input class="border-b-2 bg-white px-2 py-3 text-sm outline-none focus:border-yellow-600"  name="captcha_code" id="captcha_code" type="text" value="" style="width:70%;" placeholder="Captcha" required>
-      <img class="mt-2" src="php/captcha.php" style="height:40px" /></img>
+      <img class="mt-2" src="php/captcha.php" style="height:40px" alt="Captcha"/></img>
       <button
         type="submit"
+        aria-label="sendMessage"
         class="btn mt-8 flex w-48 items-center justify-center bg-primary px-4 py-2.5 text-sm text-white"
       >
         <svg
@@ -84,9 +86,9 @@
             data-original="#000000"
           />
         </svg>
-        <a href="javascript:void(0)" class="ml-3 text-sm font-medium text-dark">
+        <p class="ml-3 text-sm font-medium text-dark">
           info@lel.co.tz
-        </a>
+        </p>
       </li>
       <li class="flex items-center hover:text-primary">
         <svg
@@ -101,9 +103,9 @@
             data-original="#000000"
           ></path>
         </svg>
-        <a href="javascript:void(0)" class="ml-3 text-sm font-medium text-dark">
+        <p class="ml-3 text-sm font-medium text-dark">
           +255 773 600 380
-        </a>
+        </p>
       </li>
     </ul>
   </div>

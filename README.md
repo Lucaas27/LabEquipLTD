@@ -5,7 +5,7 @@
   <!-- <a href="https://labequipltd.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">Typescript & TailwindCSS Starter Template</h1>
+<h1 align="center">Typescript & TailwindCSS Website</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/Lucaas27/labequipltd?color=56BEB8">
@@ -32,7 +32,7 @@
 <hr> -->
 
 <p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#dart-about">About</a> &#xa0; | &#xa0;
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
@@ -43,7 +43,11 @@
 
 ## :dart: About
 
-This is a starter template set up in Vite. It includes a basic set up of Typescript and TailwindCSS. It also includes useful development tools such as PostCSS, PostHTML, Docker, Eslint, etc.
+This is a freelance front-end job done for Lab Equip LTD - A medical equipment provider based in Tanzania.
+
+### [Demo](https://demo.lucasgomes.co.uk/)
+
+### [Live](https://lel.co.tz/) - Lab Equip LTD
 
 ## :rocket: Technologies
 
@@ -61,19 +65,19 @@ The following tools were used in this project:
 
 ## :white_check_mark: Requirements
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Before starting :checkered_flag:, if you want to clone this repo and run it locally you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
 
 ## :checkered_flag: Starting
 
 ```bash
-# Install degit globablly
-$ npm install -g degit
+# Create a folder
+$ mkdir labequipltd
+
+# Access the folder
+$ cd labequipltd
 
 # Clone this project
-$ degit Lucaas27/labequipltd#Scaffold
-
-# Access
-$ cd labequipltd
+$ git clone https://github.com/Lucaas27/LabEquipLTD.git .
 
 # Install dependencies
 $ npm i
