@@ -192,20 +192,23 @@ function initApp() {
   }
 
   function scrollToProducts() {
-    const menuItems = document.querySelectorAll("#product-menu li");
+    console.log(window.innerWidth);
+    if (window.innerWidth <= 1024) {
+      const menuItems = document.querySelectorAll("#product-menu li");
 
-    menuItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        // Extract the target section ID from the data-category attribute
-        // let sectionId = this.getAttribute("data-category");
-        const section = document.getElementById("products");
+      menuItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          // Extract the target section ID from the data-category attribute
+          // let sectionId = this.getAttribute("data-category");
+          const section = document.getElementById("products");
 
-        // Scroll to the corresponding section
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
+          // Scroll to the corresponding section
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+          }
+        });
       });
-    });
+    }
   }
 
   // **** dropdownNavBarHandler ***
