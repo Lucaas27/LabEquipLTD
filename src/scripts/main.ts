@@ -192,7 +192,6 @@ function initApp() {
   }
 
   function scrollToProducts() {
-    console.log(window.innerWidth);
     if (window.innerWidth <= 1024) {
       const menuItems = document.querySelectorAll("#product-menu li");
 
