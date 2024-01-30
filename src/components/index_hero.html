@@ -1,49 +1,52 @@
-<!-- Container -->
-<div class="relative flex flex-col items-center lg:flex-row-reverse">
-  <!-- Image Column -->
-  <div class="h-full w-full lg:h-auto lg:w-1/2" data-aos="fade-left">
-    <img
-      class="h-full w-full object-cover object-center"
-      fetchpriority="high"
-      src="img/hero-bg.png"
-      alt="lab equipment"
-    />
-  </div>
-  <!-- Close Image Column -->
-
-  <!-- Text Column -->
+<section class="mb-20 overflow-hidden">
   <div
-    class="max-w-lg rounded-xl bg-offWhite md:absolute md:top-0 md:mt-48 md:max-w-2xl md:shadow-lg lg:left-0 lg:ml-20 lg:mt-20 lg:w-3/5 xl:ml-12 xl:mt-24"
-    data-aos="fade-right"
+    class="relative h-[70vh] overflow-hidden bg-[url('/img/hero.jpg')] bg-cover bg-[50%] bg-no-repeat"
   >
-    <!-- Text Wrapper -->
-    <div class="flex flex-col p-12 md:px-16">
-      <h2 class="text-3xl font-bold uppercase text-dark">
-        Empowering Medical
-        <span class="font-black text-yellow-500"> Excellence</span>
-      </h2>
-      <p class="mt-4 text-dark">
-        Nurturing excellence in Healthcare, Education & Research, Lab Equip is
-        dedicated to being a trusted market leader by delivering cutting-edge
-        equipment and innovative solutions.
-      </p>
-      <!-- Button Container -->
-      <div class="mt-8 flex items-center justify-center gap-4">
-        <a
-          aria-label="Products"
-          href="products.html"
-          class="btn inline-block bg-offWhite px-3 py-4 text-base text-dark hover:text-gray-100 md:w-48 md:text-lg"
-          >Products</a
-        >
-        <a
-          aria-label="Contact-form"
-          href="#contact"
-          class="btn inline-block bg-primary px-3 py-4 text-base text-gray-100 md:w-48 md:text-lg"
-          >Contact us</a
-        >
+    <div
+      class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(209,59%,25%,0.70)] bg-fixed"
+    >
+      <div class="flex h-full items-center justify-center">
+        <div class="px-6 text-center text-white md:px-12" data-aos="fade-left">
+          <!-- <div class="flex flex-col p-12 md:px-16"> -->
+          <h1
+            class="mb-10 mt-6 text-5xl font-bold tracking-tight antialiased md:text-6xl xl:text-7xl"
+          >
+            Empowering Medical
+            <span class="font-bold">Excellence</span>
+          </h1>
+          <p class="md:text-md mx-auto antialiased opacity-100 md:w-1/2">
+            Nurturing excellence in Healthcare, Education & Research. Lab Equip
+            is dedicated to being a trusted market leader by delivering
+            cutting-edge equipment and innovative solutions.
+          </p>
+          <!-- </div> -->
+          <div class="mt-8 flex items-center justify-center gap-4">
+            <a
+              aria-label="Products"
+              href="products.html"
+              class="btn inline-block bg-secondary px-3 py-4 text-base text-offWhite hover:bg-dark hover:text-light md:w-48 md:text-lg"
+              >Products</a
+            >
+            <a
+              aria-label="Contact-form"
+              href="#contact"
+              class="btn inline-block bg-primary px-3 py-4 text-base text-light hover:bg-dark hover:text-light md:w-48 md:text-lg"
+              >Contact us</a
+            >
+          </div>
+        </div>
       </div>
     </div>
-    <!-- Close Text Wrapper -->
   </div>
-  <!-- Close Text Column -->
-</div>
+
+  <div
+    class="-mt-2.5 h-[50px] origin-[top_center] scale-[2] text-light md:-mt-4 lg:-mt-6 xl:-mt-10"
+  >
+    <svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M 0 48 L 1437.5 48 L 2880 48 L 2880 0 L 2160 0 C 1453.324 60.118 726.013 4.51 720 0 L 0 0 L 0 48 Z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  </div>
+</section>

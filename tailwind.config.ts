@@ -12,11 +12,11 @@ export default {
     extend: {
       colors: {
         primary: "#b81f25",
-        secondary: "#D2E9F8",
+        secondary: "#F4F3F2",
         contrast: "#f6c86b",
         dark: "#395666",
         light: "#FAFAFA",
-        offWhite: "#F4F3F2",
+        offWhite: "#194569",
       },
       screens: {
         widescreen: { raw: "(min-aspect-ratio: 3/2)" },

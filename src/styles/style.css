@@ -58,7 +58,7 @@
   }
 
   .btn {
-    @apply rounded-3xl border-2 border-solid border-dark text-center font-medium transition-all duration-300 hover:scale-105 hover:bg-yellow-600 hover:shadow-md;
+    @apply rounded-3xl border border-solid border-dark text-center font-medium transition-all duration-300 hover:scale-105 hover:bg-offWhite  hover:shadow-md;
   }
 
   .wave {

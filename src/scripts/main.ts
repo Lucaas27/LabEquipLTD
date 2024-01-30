@@ -127,7 +127,7 @@ function initApp() {
           "(min-width: 1024px)": {
             slides: {
               origin: "auto",
-              perView: 1.5,
+              perView: 2,
               spacing: 32,
             },
           },
@@ -191,6 +191,23 @@ function initApp() {
     mobileMenu?.addEventListener("click", toggleStates(mobileMenu));
   }
 
+  function scrollToProducts() {
+    const menuItems = document.querySelectorAll("#product-menu li");
+
+    menuItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        // Extract the target section ID from the data-category attribute
+        // let sectionId = this.getAttribute("data-category");
+        const section = document.getElementById("products");
+
+        // Scroll to the corresponding section
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  }
+
   // **** dropdownNavBarHandler ***
 
   // function dropdownNavBarHandler() {
@@ -229,6 +246,29 @@ function initApp() {
   function navBarLinksHandler() {
     const navBarLinks = document.querySelectorAll(".nav-link");
 
+    const applyStyles = () => {
+      // Remove "text-primary" class from all links
+      navBarLinks.forEach((link) => {
+        link.classList.remove("text-primary");
+        link.classList.add("text-dark");
+      });
+
+      // Get the keyword from the data attribute
+      navBarLinks.forEach((link) => {
+        const keyword = link.getAttribute("data-keyword");
+
+        // Check if the current href includes the specified keyword
+        if (
+          keyword &&
+          (window.location.href.toLowerCase().includes(keyword) ||
+            (keyword === "home" && window.location.href.endsWith("/")))
+        ) {
+          link.classList.add("text-primary");
+          link.classList.remove("text-dark");
+        }
+      });
+    };
+
     const handleClick = (e: Event) => {
       const target = e.target as HTMLElement;
 
@@ -237,46 +277,47 @@ function initApp() {
         return;
       }
 
-      // Remove "text-primary" class from all links
-      navBarLinks.forEach((link) => {
-        link.classList.remove("text-primary");
-        link.classList.add("text-dark");
-      });
-
       // Save the selected link's index to localStorage
       const selectedIndex = Array.from(navBarLinks).indexOf(target);
       localStorage.setItem("selectedLink", selectedIndex.toString());
+
+      // Apply styles based on the new href
+      applyStyles();
     };
 
     // Add click event listener to each link
-    navBarLinks.forEach((link, index) => {
-      link.addEventListener(
-        "click",
-        (e: Event) => {
-          handleClick(e);
-        },
-        false,
-      );
+    navBarLinks.forEach((link) => {
+      link.addEventListener("click", (e: Event) => {
+        handleClick(e);
+      });
 
       // Check if there is a selected link in localStorage and apply the style
       const selectedIndex: string | null = localStorage.getItem("selectedLink");
-      if (selectedIndex && index === parseInt(selectedIndex, 10)) {
+      if (selectedIndex && link.classList.contains("nav-link")) {
         link.classList.add("text-primary");
         link.classList.remove("text-dark");
       }
     });
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", () => {
+      // Apply styles based on the new href
+      applyStyles();
+    });
+
+    // Apply styles initially when the page loads
+    applyStyles();
   }
 
   // Contact form handler
   function contactFormHandler() {
     // form
-    const contactForm: HTMLFormElement | null = document.getElementById(
+    const contactForm = document.getElementById(
       "contact-form",
     ) as HTMLFormElement;
 
     // notifications
-    const notifications: Element | null =
-      document.getElementById("notification");
+    const notifications = document.getElementById("notification");
 
     contactForm?.addEventListener("submit", (e: any) => {
       e.preventDefault();
@@ -310,6 +351,7 @@ function initApp() {
             contactForm?.reset();
 
             if (notifications) {
+              notifications.classList.remove("hidden");
               notifications.innerHTML = `
               <div
                 class="mb-3 inline-flex items-center rounded-lg bg-green-100 px-6 py-5 text-base text-green-700"
@@ -337,6 +379,7 @@ function initApp() {
               }, 3000);
             }
           } else if (notifications) {
+            notifications.classList.remove("hidden");
             notifications.innerHTML = `
               <div
                 class="mb-3 inline-flex items-center rounded-lg bg-red-100 px-6 py-5 text-base text-red-700"
@@ -377,6 +420,7 @@ function initApp() {
   hamburgerBtnHandler();
   contactFormHandler();
   sliderHandler();
+  scrollToProducts();
   if (keenSliderEl) testimonialHandler();
   accordionHandler();
   productClickHandler();
