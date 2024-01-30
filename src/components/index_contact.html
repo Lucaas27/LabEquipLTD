@@ -110,3 +110,50 @@ class="shadow-[0_2px_10px_-3px_rgb(218 82 88,0.3)] relative mx-auto my-6 grid ma
     </ul>
   </div>
 </div>
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the contact form element
+    const contactForm = document.getElementById("contact");
+
+    // Get the "Contact us" link in the navbar
+    const contactLink = document.querySelector('a[href="/#contact"]');
+
+    // Function to scroll to the contact form
+    const scrollToContactForm = () => {
+      // Calculate the offset to scroll to the contact form, considering the fixed navbar height
+      const navbarHeight = document.getElementById("standard-nav").offsetHeight;
+      const targetOffset = contactForm.offsetTop - navbarHeight;
+
+      // Use smooth scrolling to scroll to the contact form
+      window.scrollTo({
+        top: targetOffset,
+        behavior: "smooth",
+      });
+    };
+
+    // Check if there are URL parameters indicating to scroll to the contact form
+    const urlParams = new URLSearchParams(window.location.search);
+    const scrollParam = urlParams.get("scrollToContactForm");
+
+    // Add a click event listener to the link
+    contactLink.addEventListener("click", function (event) {
+      // If the link is clicked on a different page, add URL parameter to indicate scrolling
+      if (window.location.pathname !== "/") {
+        window.location.href = "/?scrollToContactForm=true";
+        return;
+      }
+
+      // Prevent the default link behavior
+      event.preventDefault();
+
+      // Scroll to the contact form
+      scrollToContactForm();
+    });
+
+    // Check if the page has the URL parameter to scroll to the contact form
+    if (scrollParam === "true") {
+      // Scroll to the contact form after a short delay to allow page content to load
+      setTimeout(scrollToContactForm, 500);
+    }
+  });
+</script> -->

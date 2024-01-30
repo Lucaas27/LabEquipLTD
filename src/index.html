@@ -1,9 +1,6 @@
 <extends src="layouts/main.html" locals='{"title": "Lab Equip - Home"}'>
   <block name="content">
-    <section
-      class="md:md-section-min-height section-min-height xl:mb-15 mx-auto mb-10 flex max-w-4xl flex-row items-center justify-center xl:max-w-6xl"
-      id="hero"
-    >
+    <section id="hero">
       <include src="components/index_hero.html"></include>
     </section>
     <section class="mx-auto mb-28 max-w-4xl px-6 xl:max-w-6xl" id="products">
@@ -18,7 +15,10 @@
     >
       <include src="components/index_testimonials.html"></include>
     </section>
-    <section class="mx-auto mb-20 max-w-4xl px-6 xl:max-w-6xl" id="contact">
+    <section
+      class="mx-auto mb-20 max-w-4xl px-6 pt-11 xl:max-w-6xl"
+      id="contact"
+    >
       <include src="components/index_contact.html"></include>
     </section>
     <section
