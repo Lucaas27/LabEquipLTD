@@ -27,16 +27,19 @@ export default defineConfig({
     eslint(),
     ViteImageOptimizer({
       png: {
-        quality: 80,
+        quality: 50,
       },
       jpeg: {
-        quality: 100,
+        quality: 50,
       },
       jpg: {
-        quality: 80,
+        quality: 50,
       },
       tiff: {
-        quality: 100,
+        quality: 50,
+      },
+      webp: {
+        lossless: true,
       },
     }),
     posthtml({

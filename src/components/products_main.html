@@ -6,25 +6,32 @@
 </div>
 
 <div
-  class="justify-be flex flex-col-reverse items-start gap-6 p-6 md:flex-row md:px-8"
+  class="flex flex-col-reverse items-start justify-center gap-6 p-6 pb-6 md:flex-row md:px-8"
 >
-  <div class="min-w-min px-4">
-    <img
-      src="img/lab.jpg"
-      alt="about us"
-      class="max-w-full rounded-2xl shadow-lg"
-    />
-  </div>
-  <div class="flex flex-col items-start justify-start gap-3">
-    <h2 class="mb-2 text-2xl font-bold capitalize text-dark">
-      Browse through our extensive selection of equipment!
-    </h2>
-    <p class="text-base text-dark opacity-100">
-      Explore our extensive range of high-quality medical equipment and
-      solutions designed to provide exceptional patient care. We are your
-      reliable partner in supplying healthcare institutions with the necessary
-      tools for optimal medical practices.
-    </p>
+  <div
+    class="flex flex-col items-center justify-start gap-4 border-b pb-12 md:flex-row md:items-start"
+  >
+    <div class="px-4 md:w-1/2">
+      <picture>
+        <source type="image/webp" srcset="/img/lab.webp" />
+        <img
+          src="/img/lab.jpg"
+          alt="lab"
+          class="max-w-full rounded-2xl shadow-lg"
+        />
+      </picture>
+    </div>
+    <div class="flex-1">
+      <h2 class="mb-2 text-2xl font-bold capitalize text-dark">
+        Browse through our extensive selection of equipment!
+      </h2>
+      <p class="text-base text-dark opacity-100">
+        Explore our extensive range of high-quality medical equipment and
+        solutions designed to provide exceptional patient care. We are your
+        reliable partner in supplying healthcare institutions with the necessary
+        tools for optimal medical practices.
+      </p>
+    </div>
   </div>
 </div>
 <!--
@@ -90,7 +97,7 @@
       <div class="flex h-full min-w-max flex-row items-center justify-center">
         <a
           type="button"
-          aria-label="product-link"
+          aria-label="contact"
           class="btn flex items-center justify-center gap-2 rounded-3xl bg-primary p-4 text-light hover:bg-offWhite hover:text-white"
           href="/#contact"
         >

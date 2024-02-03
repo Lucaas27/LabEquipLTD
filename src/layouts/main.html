@@ -10,7 +10,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title}}</title>
     <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
+    <!-- Import the fonts -->
+    <link
+      rel="preconnect"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500&family=Roboto:wght@400&display=swap"
+    />
+
+    <!-- Preconnect to Font Awesome domain -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      rel="preconnect"
+      async
+    />
+
     <link href="/styles/style.css" rel="stylesheet" />
+
+    <link rel="preload" as="image" href="/img/hero.webp" />
+    <!-- <link rel="preload" as="image" href="/img/hero.jpg" /> -->
   </head>
   <body class="bg-light">
     <div class="loader"></div>
@@ -27,6 +48,6 @@
         <include src="components/footer.html"></include>
       </footer>
     </div>
-    <script type="module" src="/scripts/main.ts"></script>
+    <script type="module" src="/scripts/main.ts" defer></script>
   </body>
 </html>
