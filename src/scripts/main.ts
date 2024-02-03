@@ -430,8 +430,7 @@ function initApp() {
 
 // Loader
 function pageLoader() {
-  const loader: Element | null = document.querySelector(".loader");
-
+  const loader = document.querySelector(".loader");
   loader?.classList.add("hidden");
   loader?.classList.add("opacity-0");
 }

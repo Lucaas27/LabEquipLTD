@@ -1,13 +1,15 @@
 <div
-class="shadow-[0_2px_10px_-3px_rgb(218 82 88,0.3)] relative mx-auto my-6 grid max-w-6xl gap-16 rounded-3xl bg-white p-10 md:grid-cols-2 md:before:absolute md:before:left-0 md:before:h-full md:before:w-[300px] md:before:rounded-l-xl md:before:bg-offWhite"
+  class="shadow-[0_2px_10px_-3px_rgb(218 82 88,0.3)] relative mx-auto my-6 grid max-w-6xl gap-16 rounded-3xl bg-white p-10 md:grid-cols-2 md:before:absolute md:before:left-0 md:before:h-full md:before:w-[300px] md:before:rounded-l-xl md:before:bg-offWhite"
 >
-<div class="relative h-full md:min-h-[350px]">
-  <iframe
-    src="https://maps.google.com/maps?q=Lab+Equip+Ltd+-+Lab+House,+Dar+es+Salaam,+Tanzania&t=&z=13&ie=UTF8&iwloc=&output=embed"
-    class="left-0 top-0 h-full w-full rounded-lg"
-    frameborder="0"
-    allowfullscreen
-    title="lab-equip-map"
+  <div class="map-container relative h-full md:min-h-[350px]">
+    <iframe
+      src="https://maps.google.com/maps?q=Lab+Equip+Ltd+-+Lab+House,+Dar+es+Salaam,+Tanzania&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      class="left-0 top-0 h-full w-full rounded-lg"
+      frameborder="0"
+      allowfullscreen
+      title="lab-equip-map"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
   </div>
   <div>
@@ -15,7 +17,7 @@ class="shadow-[0_2px_10px_-3px_rgb(218 82 88,0.3)] relative mx-auto my-6 grid ma
     <h2 class="mb-3 text-3xl font-bold leading-[1.2] text-dark">
       Get In Touch
     </h2>
-    <p class="mt-3 text-sm text-gray-400">
+    <p class="mt-3 text-sm text-gray-600">
       Have a specific inquiry or looking for more information? Our experienced
       team is ready to engage with you.
     </p>
@@ -45,11 +47,25 @@ class="shadow-[0_2px_10px_-3px_rgb(218 82 88,0.3)] relative mx-auto my-6 grid ma
           class="min-h-[100px] w-full border-b-2 bg-white px-2 pt-3 text-sm text-dark outline-none focus:border-yellow-600"
         ></textarea>
       </div>
-      <input class="border-b-2 bg-white px-2 py-3 text-sm outline-none focus:border-yellow-600"  name="captcha_code" id="captcha_code" type="text" value="" style="width:70%;" placeholder="Captcha" required>
-      <img class="mt-2" src="php/captcha.php" style="height:40px" alt="Captcha"/></img>
+      <input
+        class="border-b-2 bg-white px-2 py-3 text-sm outline-none focus:border-yellow-600"
+        name="captcha_code"
+        id="captcha_code"
+        type="text"
+        value=""
+        style="width: 70%"
+        placeholder="Captcha"
+        required
+      />
+      <img
+        class="mt-2"
+        src="php/captcha.php"
+        style="height: 40px"
+        alt="Captcha"
+      />
       <button
         type="submit"
-        aria-label="sendMessage"
+        aria-label="Send Message"
         class="btn mt-8 flex w-48 items-center justify-center bg-primary px-4 py-2.5 text-sm text-white"
       >
         <svg
@@ -86,9 +102,7 @@ class="shadow-[0_2px_10px_-3px_rgb(218 82 88,0.3)] relative mx-auto my-6 grid ma
             data-original="#000000"
           />
         </svg>
-        <p class="ml-3 text-sm font-medium text-dark">
-          info@lel.co.tz
-        </p>
+        <p class="ml-3 text-sm font-medium text-dark">info@lel.co.tz</p>
       </li>
       <li class="flex items-center hover:text-primary">
         <svg
@@ -103,9 +117,7 @@ class="shadow-[0_2px_10px_-3px_rgb(218 82 88,0.3)] relative mx-auto my-6 grid ma
             data-original="#000000"
           ></path>
         </svg>
-        <p class="ml-3 text-sm font-medium text-dark">
-          +255 773 600 380
-        </p>
+        <p class="ml-3 text-sm font-medium text-dark">+255 773 600 380</p>
       </li>
     </ul>
   </div>
