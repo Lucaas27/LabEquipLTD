@@ -15,7 +15,7 @@
       <picture>
         <source type="image/webp" srcset="/img/lab.webp" />
         <img
-          src="/img/lab.jpg"
+          src="img/lab.jpg"
           alt="lab"
           class="max-w-full rounded-2xl shadow-lg"
         />
@@ -34,22 +34,10 @@
     </div>
   </div>
 </div>
-<!--
-
-<div>
-  <p>
-    Explore our extensive range of high-quality medical equipment and solutions
-    designed to provide exceptional patient care. Browse through our diverse
-    selection of innovative and dependable equipment, customized for various
-    medical specialties. We are your reliable partner in supplying healthcare
-    institutions with the necessary tools for optimal medical practices. Join us
-    on a journey to elevate healthcare standards.
-  </p>
-</div> -->
 
 <div class="mx-auto rounded-3xl px-6 py-8">
   <div
-    class="text-dark lg:flex lg:flex-col lg:items-center lg:justify-center lg:gap-8"
+    class="lg:gap- w-full text-dark lg:flex lg:flex-col lg:items-center lg:justify-center"
   >
     <!-- links -->
     <include src="components/products_sidenav.html"></include>
@@ -65,8 +53,21 @@
         </p>
       </div>
 
+      <picture>
+        <source
+          type="image/webp"
+          id="productImage"
+          srcset="img/products/medicalequipment.webp"
+        />
+        <img
+          src="img/products/medicalequipment.jpg"
+          alt="product Image"
+          class="max-w-full rounded-2xl shadow-lg"
+        />
+      </picture>
+
       <div
-        class="ml-4 mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         <!-- Medical Equipment -->
         <include src="components/products_medicalEquip.html"></include>

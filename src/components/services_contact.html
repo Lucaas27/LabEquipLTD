@@ -1,0 +1,172 @@
+<div
+  id="services-popup"
+  tabindex="-1"
+  class="left-0 right-0 top-0 z-50 hidden h-full items-center justify-center overflow-y-auto overflow-x-hidden bg-black/50"
+>
+  <div class="relative h-full w-full max-w-3xl p-4 md:h-auto">
+    <div class="relative rounded-lg bg-white shadow">
+      <button
+        type="button"
+        id="popup-close"
+        class="popup-close absolute right-2.5 top-3 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-5 w-5"
+          fill="#c6c7c7"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            cliprule="evenodd"
+          ></path>
+        </svg>
+        <span class="sr-only">Close popup</span>
+      </button>
+
+      <div class="p-5">
+        <h3 class="mb-0.5 text-2xl font-medium"></h3>
+        <p class="mb-4 text-sm font-normal text-gray-800"></p>
+
+        <div class="text-center">
+          <p class="mb-3 text-2xl font-semibold leading-8">
+            Need help with anything? Get in touch!
+          </p>
+          <p class="mt-2 text-sm leading-4 text-slate-600">
+            Our team will get back to you as soon as possible.
+          </p>
+        </div>
+
+        <div class="mx-auto mt-7 flex flex-col gap-2 px-7">
+          <form
+            class="popup-content w-full"
+            action="php/reportIssue.php"
+            id="reportIssue"
+          >
+            <div class="flex flex-row">
+              <label for="reportName" class="sr-only">Name</label>
+              <input
+                name="name"
+                id="reportName"
+                type="text"
+                autocomplete="name"
+                required
+                class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:ring-offset-1"
+                placeholder="Name*"
+                value=""
+              />
+              <label for="reportAddress" class="sr-only">Address</label>
+              <input
+                name="address"
+                id="reportAddress"
+                type="text"
+                autocomplete="address-line1"
+                required
+                class="mb-2 ml-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:ring-offset-1"
+                placeholder="Address"
+                value=""
+              />
+            </div>
+            <div class="flex flex-row">
+              <label for="reportEmail" class="sr-only">Email </label>
+              <input
+                name="email"
+                id="reportEmail"
+                type="email"
+                autocomplete="email"
+                required
+                class="mb-2 mr-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:ring-offset-1"
+                placeholder="Email*"
+                value=""
+              />
+              <label for="reportContactNumber" class="sr-only"
+                >Phone Number</label
+              >
+              <input
+                name="reportContactNumber"
+                id="reportContactNumber"
+                type="tel"
+                autocomplete="phone"
+                size="20"
+                minlength="9"
+                maxlength="14"
+                class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:ring-offset-1"
+                placeholder="Phone"
+                value=""
+              />
+            </div>
+            <label for="reportEquipment" class="sr-only"
+              >Equipment Name/Model</label
+            >
+            <input
+              name="equipment"
+              placeholder="Equipment Name/Model*"
+              type="text"
+              required
+              id="reportEquipment"
+              class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:ring-offset-1"
+            />
+            <div class="flex flex-row gap-x-2">
+              <label for="reportSerialNo" class="sr-only"
+                >Equipment Serial No.</label
+              >
+              <input
+                name="serialNo"
+                placeholder="Equipment Serial No.*"
+                type="text"
+                required
+                id="reportSerialNo"
+                class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:ring-offset-1"
+              />
+              <label for="reportPurchaseDate" class="sr-only"
+                >Date of purchase</label
+              >
+              <input
+                name="purchaseDate"
+                placeholder="Date of purchase"
+                type="text"
+                id="reportPurchaseDate"
+                onfocus="(this.type='date')"
+                onblur="if(this.value==''){this.type='text'}"
+                class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:ring-offset-1"
+              />
+            </div>
+            <label for="reportMessage" class="sr-only">Message</label>
+            <textarea
+              name="message"
+              id="reportMessage"
+              class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring focus:ring-primary focus:ring-opacity-50 focus:ring-offset-1"
+              rows="3"
+              required
+              placeholder="What is the issue? Please add as much detail as possible.*"
+            ></textarea>
+            <button
+              type="submit"
+              aria-label="Send Message"
+              class="btn mx-auto mt-8 flex w-48 items-center justify-center bg-offWhite px-4 py-2.5 text-sm text-white hover:opacity-90"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16px"
+                height="16px"
+                fill="#fff"
+                class="mr-2"
+                viewBox="0 0 548.244 548.244"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M392.19 156.054 211.268 281.667 22.032 218.58C8.823 214.168-.076 201.775 0 187.852c.077-13.923 9.078-26.24 22.338-30.498L506.15 1.549c11.5-3.697 24.123-.663 32.666 7.88 8.542 8.543 11.577 21.165 7.879 32.666L390.89 525.906c-4.258 13.26-16.575 22.261-30.498 22.338-13.923.076-26.316-8.823-30.728-22.032l-63.393-190.153z"
+                  clip-rule="evenodd"
+                  data-original="#000000"
+                />
+              </svg>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

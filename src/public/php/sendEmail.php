@@ -10,7 +10,7 @@ if (isset($_POST['captcha_code'])) {
         $message = $_POST['message'];
 
         $to = "info@lel.co.tz";
-        $subject = "Lab Equipment Ltd - New message";
+        $subject = "Lab Equip Ltd - New Message";
         $htmlMessage = '<!DOCTYPE html>
                         <html>
                         <head></head>
@@ -25,7 +25,7 @@ if (isset($_POST['captcha_code'])) {
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'From: logistics@lel.co.tz' . "\r\n";
-        $headers .= 'Reply-To: logistics@lel.co.tz' . "\r\n";
+        $headers .= 'Reply-To: ' . $email . "\r\n"; // Reply to the sender's email
         $headers .= 'X-Mailer: PHP/' . phpversion();
 
         if (mail($to, $subject, $htmlMessage, $headers)) {

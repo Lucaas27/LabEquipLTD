@@ -10,7 +10,7 @@
         <button
           id="hamburger-button"
           aria-label="hamburger-button"
-          class="relative h-8 w-8 cursor-pointer text-3xl text-dark focus:text-primary md:hidden"
+          class="relative h-8 w-8 cursor-pointer text-3xl text-dark focus:text-primary lg:hidden"
           type="button"
         >
           <div
@@ -20,7 +20,7 @@
         </button>
         <nav
           aria-label="main-nav"
-          class="hidden space-x-8 text-base uppercase md:block"
+          class="hidden space-x-8 text-sm uppercase lg:block"
         >
           <div class="inline space-x-8 font-medium">
             <a
@@ -31,11 +31,32 @@
               >Home</a
             >
             <a
+              aria-label="Products"
+              href="/products.html"
+              class="nav-link text-dark hover:text-primary"
+              data-keyword="products"
+              >Products</a
+            >
+            <a
               href="/about.html"
               class="nav-link text-dark hover:text-primary"
               aria-label="About"
               data-keyword="about"
               >About</a
+            >
+            <a
+              href="/#partners"
+              class="nav-link text-dark hover:text-primary"
+              aria-label="Our Clients"
+              data-keyword="partners"
+              >Our Clients</a
+            >
+            <a
+              href="/#contact"
+              class="nav-link text-dark hover:text-primary"
+              aria-label="Contact us"
+              data-keyword="contact"
+              >Contact us</a
             >
             <a
               aria-label="Services"
@@ -45,25 +66,11 @@
               >Services</a
             >
             <a
-              aria-label="Products"
-              href="/products.html"
-              class="nav-link text-dark hover:text-primary"
-              data-keyword="products"
-              >Products</a
-            >
-            <a
               href="/faq.html"
               class="nav-link text-dark hover:text-primary"
               aria-label="FAQ"
               data-keyword="faq"
               >FAQ</a
-            >
-            <a
-              href="/#contact"
-              class="nav-link text-dark hover:text-primary"
-              aria-label="Contact us"
-              data-keyword="contact"
-              >Contact us</a
             >
           </div>
         </nav>
@@ -102,6 +109,12 @@
         href="products.html"
         class="w-full py-6 text-center text-dark hover:bg-white hover:text-primary"
         >Products</a
+      >
+      <a
+        aria-label="Our Clients"
+        href="#partners"
+        class="w-full py-6 text-center text-dark hover:bg-white hover:text-primary"
+        >Our Clients</a
       >
       <a
         aria-label="FAQ"
